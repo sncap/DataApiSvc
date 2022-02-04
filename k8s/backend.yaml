@@ -17,14 +17,8 @@ spec:
           ports:
           - containerPort: 8090
           env:
-            - name: URL_CARTSERVICE
-              value: http://eshop-cartservice:8091
-            - name: URL_PRODUCTSERVICE
-              value: http://eshop-productservice:8092
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://postgres:5432/eshop_db"
-            - name: SPRING_RABBITMQ_HOST
-              value: rabbitmq
+              value: "jdbc:postgresql://postgres:5432/das_db"
           resources:
             requests:
               cpu: 500m
@@ -36,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: eshop-backend
+  name: das-backend
 spec:
   type: ClusterIP
   selector:
