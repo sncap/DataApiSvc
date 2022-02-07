@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cds</groupId>
-	<artifactId>cds</artifactId>
+	<artifactId>das-backend</artifactId>
 	<version>0.0.7</version>
-	<name>cds</name>
+	<name>das-backend</name>
 	<description>CDS for Spring Boot</description>
 
 	<properties>
