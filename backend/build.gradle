@@ -9,16 +9,15 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
+    mavenCentral()
 }
 
+
 dependencies {
-    implementation 'org.apache.velocity:velocity-engine-core:2.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.2'
     implementation 'org.sql2o:sql2o:1.6.0'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.2.6.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.2.6.RELEASE'
     implementation 'com.microsoft.sqlserver:mssql-jdbc:7.4.1.jre8'
     implementation 'com.oracle.ojdbc:ojdbc8:19.3.0.0'
     implementation 'mysql:mysql-connector-java:8.0.19'
@@ -36,16 +35,21 @@ dependencies {
 group = 'com.cds'
 version = '0.1.0'
 description = 'das-backend'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+/*java.sourceCompatibility = JavaVersion.VERSION_1_8*/
+sourceCompatibility = '11'
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
     }
 }
 
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
 }

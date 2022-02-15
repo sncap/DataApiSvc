@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cds</groupId>
-	<artifactId>das-backend</artifactId>
+	<artifactId>cds</artifactId>
 	<version>0.0.7</version>
-	<name>das-backend</name>
+	<name>cds</name>
 	<description>CDS for Spring Boot</description>
 
 	<properties>
@@ -96,6 +96,10 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		<!--<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>-->
 	</dependencies>
 
 	<build>
