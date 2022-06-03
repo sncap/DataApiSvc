@@ -5,7 +5,7 @@ node {
   stage('========== Build image ==========') {
     dir('frontend'){
         script{
-            app = docker.build("sncap/das-frontend", "-f ./frontend/Dockerfile .")
+            app = docker.build("sncap/das-frontend")
         }
     }
   }
