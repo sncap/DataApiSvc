@@ -1,0 +1,14 @@
+node {
+  stage('========== Clone repository ==========') {
+    checkout scm
+  }
+  stage('========== Build image ==========') {
+    app = docker.build("sncap/das-frontend:${env.BUILD_NUMBER}")
+  }
+  stage('========== Push image ==========') {
+    docker.withRegistry('sncap', "${env.CREDENTIAL}") {
+      app.push("${env.BUILD_NUMBER}")
+      app.push("latest")
+    }
+  }
+}
