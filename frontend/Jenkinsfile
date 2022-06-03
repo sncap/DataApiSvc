@@ -3,11 +3,9 @@ node {
     checkout scm
   }
   stage('========== Build image ==========') {
-    steps {
-        dir('./frontend'){
-            script{
-                app = docker.build("sncap/das-frontend", "./frontend")
-            }
+    dir('frontend'){
+        script{
+            app = docker.build("sncap/das-frontend", "-f ./frontend/Dockerfile .")
         }
     }
   }
