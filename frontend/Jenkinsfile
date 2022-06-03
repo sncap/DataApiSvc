@@ -3,7 +3,13 @@ node {
     checkout scm
   }
   stage('========== Build image ==========') {
-    app = docker.build("sncap/das-frontend", "./frontend")
+    steps {
+        dir('./frontend'){
+            script{
+                app = docker.build("sncap/das-frontend", "./frontend")
+            }
+        }
+    }
   }
   stage('========== Push image ==========') {
     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
