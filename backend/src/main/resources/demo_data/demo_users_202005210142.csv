@@ -1,0 +1,17 @@
+"user_id","name","password","role","use_yn","email"
+user,윤주석,"1234",administrator,Y,google@gami.com
+admin,juseok.yun,"123",administrator,Y,google@gami.com
+demo_id_1,demo_1,abc1234,user,Y,mail@user.com
+demo_id_10,demo_10,abc1234,user,Y,mail@user.com
+demo_id_100,demo_100,abc1234,user,Y,mail@user.com
+demo_id_1000,demo_1000,abc1234,user,Y,mail@user.com
+demo_id_1001,demo_1001,abc1234,user,Y,mail@user.com
+demo_id_1002,demo_1002,abc1234,user,Y,mail@user.com
+demo_id_1003,demo_1003,abc1234,user,Y,mail@user.com
+demo_id_1004,demo_1004,abc1234,user,Y,mail@user.com
+demo_id_1005,demo_1005,abc1234,user,Y,mail@user.com
+demo_id_1006,demo_1006,abc1234,user,Y,mail@user.com
+demo_id_1007,demo_1007,abc1234,user,Y,mail@user.com
+demo_id_1008,demo_1008,abc1234,user,Y,mail@user.com
+demo_id_1009,demo_1009,abc1234,user,Y,mail@user.com
+demo_id_101,demo_101,abc1234,user,Y,mail@user.com
