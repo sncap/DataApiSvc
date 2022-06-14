@@ -1,0 +1,61 @@
+api/abcde1,"select * from demo_users
+",2020-04-07,admin
+api/v2/demo_users,select pg_sleep(3),2020-04-07,admin
+db.AbcDAO.dList000,"/*db.AbcDAO.dList000*/ 
+select * from demo_users where 1=1 and
+#if ($a == 'a')
+name like :name||'%'
+#else
+name = :name
+#end
+",2020-04-07,admin
+db.AbcDAO.list000,"/*db.AbcDAO.list000*/ 
+select * from demo_users where name like ?||'%'",2020-04-07,admin
+db.DemoUsersDAO.deleteDemoUsers,"DELETE FROM /*db.DemoUsersDAO.deleteDemoUsers*/
+demo_users
+WHERE
+	user_id = :userId ",2020-04-06,admin
+db.DemoUsersDAO.insertDemoUsers,"INSERT INTO /*db.DemoUsersDAO.insertDemoUsers*/ 
+demo_users ( 
+	user_id ,
+	name ,
+	password ,
+	role ,
+	use_yn ,
+	email
+)  VALUES  ( 
+	:userId ,
+	:name ,
+	:password ,
+	:role ,
+	:useYn ,
+	:email
+)",2020-04-06,admin
+db.DemoUsersDAO.selectDemoUsers,"SELECT /*db.DemoUsersDAO.selectDemoUsers*/ 
+	user_id ,
+	name ,
+	password ,
+	role ,
+	use_yn ,
+	email
+FROM demo_users
+WHERE
+	user_id = :userId ",2020-04-06,admin
+db.DemoUsersDAO.updateDemoUsers,"UPDATE /*db.DemoUsersDAO.updateDemoUsers*/
+demo_users
+SET 
+	name = :name ,
+	password = :password ,
+	role = :role ,
+	use_yn = :useYn ,
+	email = :email
+WHERE
+	user_id = :userId ",2020-04-06,admin
+db.aa/bb/.dListWithCache000,"/*db.aa/bb/.dListWithCache000*/ 
+select * from demo_users where 1=1 and
+#if ($a == 'a')
+name like :name||'%'
+#else
+name = :name
+#end
+",2020-04-07,admin
