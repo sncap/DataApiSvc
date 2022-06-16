@@ -1,5 +1,6 @@
 # build stage
 FROM node:lts-alpine as build-stage
+ENV DEST_URL localhost
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

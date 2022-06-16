@@ -25,7 +25,9 @@ public class CdsApplication {
         HikariDataSource dataSource = dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
         dataSource.setMaximumPoolSize(Runtime.getRuntime().availableProcessors() * 2);
         String password = dataSource.getPassword();
-        dataSource.setPassword(DbPassword.decAES(password));
+        if(password != null){
+            dataSource.setPassword(DbPassword.decAES(password));
+        }
         return dataSource;
    }
 //	 public void configurePathMatch(PathMatchConfigurer configurer) {

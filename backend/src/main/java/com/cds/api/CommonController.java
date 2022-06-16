@@ -36,7 +36,7 @@ import org.springframework.web.servlet.HandlerMapping;
 
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class CommonController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
