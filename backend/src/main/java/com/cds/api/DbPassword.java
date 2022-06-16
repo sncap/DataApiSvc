@@ -31,6 +31,12 @@ public class DbPassword {
 		encStr = encAES(str);
 		System.out.println(encStr);
 		System.out.println(decAES(encStr));
+
+        // my password 
+        str = "password";
+		encStr = encAES(str);
+		System.out.println(encStr);
+		System.out.println(decAES(encStr));
 	}
 
 	public static Key getAESKey() throws UnsupportedEncodingException {

@@ -1,0 +1,3 @@
+common/test1,commSVC,list,db.DemoUsersDAO.selectDemoUsers,"",N,N,json,common/test1
+common/test2,commSVC,list,db.AbcDAO.list000,"",N,N,json,common/test1
+common/test3,commSVC,list,db.AbcDAO.dList000,"",N,N,json,common/test1

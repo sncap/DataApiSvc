@@ -1,0 +1,7 @@
+"name","db_url","conn_max_cnt","conn_timeout","update_time","update_user","biz_dept","biz_name","user_id","passwd","schema_name","db_type"
+mysqlDs,jdbc:mysql://localhost:3306/cds_test?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true,4,11,2020-04-29 07:30:39,none,none,테스트,root,mysql,,mysql
+mssqlDs,jdbc:sqlserver://localhost:1433;DataBaseName=master,4,11,2020-04-29 07:30:44,none,none,테스트,sa,<yourPAssword1!>,,mssql
+ds5,jdbc:postgresql://localhost:5431/cds_db,5,3,2020-05-21 10:31:41,admin,"","",postgres,postgres,"",postgres
+ds3,jdbc:postgresql://localhost:5432/cds_db,3,10,2020-04-29 07:30:22,none,none,none,postgres,postgres,,postgres
+ds2,jdbc:postgresql://localhost:5432/cds_db,1,4,2020-04-29 07:30:08,none,dept,테스트,postgres,postgres,,postgres
+ds1,jdbc:postgresql://localhost:5432/cds_db,10,4,2020-04-29 07:29:12,admin,ds,ds업무,postgres,postgres,,postgres
