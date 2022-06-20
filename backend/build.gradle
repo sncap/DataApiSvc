@@ -57,3 +57,26 @@ test {
     exclude '**/*'
     /*useJUnitPlatform()*/
 }
+
+bootJar {
+    baseName = 'das-backend'
+    version =  '0.1.0'
+}
+
+jib {
+    from {
+        image='openjdk:8-jdk-alpine'
+    }
+    to {
+        image = "${bootJar.baseName}:${bootJar.version}"
+        tags = ['latest']
+    }
+    container {
+        mainClass='com.cds.CdsApplication'
+        creationTime='USE_CURRENT_TIMESTAMP'
+        environment=[USE_PROFILE:'default', NORMAL_PROP:'NORMAL', DIRECT_MSG:'Hello!']
+        format='OCI'
+        volumes=['/var/tmp']
+        entrypoint=['java', '-Dspring.profiles.active=${USE_PROFILE}', '-Dnormal.prop=${NORM_PROP}', '-Dconfig.healthmsg=${DIRECT_MSG}', '-cp',  '/app/resources:/app/classes:/app/libs/*', ${mainClass}]
+    }
+}
