@@ -10,22 +10,37 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: das-frontend
-          servicePort: 8080
+          service:
+            name: das-frontend
+            port:
+              number: 8080
       - path: /api
+        pathType: Prefix
         backend:
-          serviceName: das-backend
-          servicePort: 8090
+          service:
+            name: das-backend
+            port:
+              number: 8090
       - path: /cds
+        pathType: Prefix
         backend:
-          serviceName: das-backend
-          servicePort: 8090
+          service:
+            name: das-backend
+            port:
+              number: 8090
       - path: /downloadFile
+        pathType: Prefix
         backend:
-          serviceName: das-backend
-          servicePort: 8090
+          service:
+            name: das-backend
+            port:
+              number: 8090
       - path: /api2Csv
+        pathType: Prefix
         backend:
-          serviceName: das-backend
-          servicePort: 8090
+          service:
+            name: das-backend
+            port:
+              number: 8090
