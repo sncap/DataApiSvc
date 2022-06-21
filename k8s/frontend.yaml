@@ -15,7 +15,6 @@ spec:
       containers:
         - name: das-frontend
           image: sncap/das-frontend:0.0.1
-          command: [ "http-server", "dist", "--proxy", "http://das-backend:8090"]
           ports:
           - containerPort: 8080
           resources:
