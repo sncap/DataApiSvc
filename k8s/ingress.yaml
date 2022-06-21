@@ -17,7 +17,15 @@ spec:
         backend:
           serviceName: das-backend
           servicePort: 8090
-      - path: /static
+      - path: /cds
         backend:
           serviceName: das-backend
           servicePort: 8090
+      - path: /downloadFile
+          backend:
+            serviceName: das-backend
+            servicePort: 8090
+      - path: /api2Csv
+          backend:
+            serviceName: das-backend
+            servicePort: 8090
