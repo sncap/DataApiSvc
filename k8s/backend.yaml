@@ -5,6 +5,7 @@ metadata:
   labels:
     app: das-backend
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: das-backend
