@@ -2,7 +2,7 @@ module.exports = {
     devServer: {
         proxy: {
             "^/": {
-                target: "http://${DEST_URL}:8090"
+                target: "http://localhost:8090"
             }
         },
         disableHostCheck: true
