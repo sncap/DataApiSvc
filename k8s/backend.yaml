@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: das-backend
+  labels:
+    app: das-backend
 spec:
   selector:
     matchLabels:
@@ -13,7 +15,7 @@ spec:
     spec:
       containers:
         - name: das-backend
-          image: das-backend
+          image: sncap/das-backend:0.1.0
           ports:
           - containerPort: 8090
           env:
@@ -22,7 +24,7 @@ spec:
           resources:
             requests:
               cpu: 500m
-              memory: 384Mi
+              memory: 1000Mi
             limits:
               cpu: 1000m
               memory: 1024Mi
@@ -37,3 +39,20 @@ spec:
     app: das-backend
   ports:
   - port: 8090
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: das-backend
+spec:
+  scaleTargetRef:  # 스케일 아웃할 타겟 설정
+    apiVersion: apps/v1
+    kind: Deployment  #  스케일 아웃할 타겟의 종류 (deployment, replicaset 등)
+    name: das-backend
+  minReplicas: 1  # 최소 replicas 개수
+  maxReplicas: 5  # 최대 replicas 개수
+  metrics:
+    - resource:
+        name: cpu  # HPA를 구성할 리소스(CPU, MEM 등)
+        targetAverageUtilization: 60  # CPU 사용률이 60% 이상일 경우 생성
+      type: Resource  # 리소스 타입 선언
