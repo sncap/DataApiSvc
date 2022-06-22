@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: das-backend
-          image: sncap/das-backend:0.1.0
+          image: sncap/das-backend:0.1.1
           ports:
           - containerPort: 8090
           env:
