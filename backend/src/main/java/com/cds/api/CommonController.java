@@ -296,13 +296,13 @@ public class CommonController {
 		String Tokens = "yjWq0Nv5bJOE3sZBZ4sGuK1KNHkD9KTX";
 
         return true;
-        
-		if((DEP_token != null)) {
-			return true;
-		} else if((CDS_token != null) && CDS_token.equals(Tokens)){
-			return true;
-		}
-		return false;
+
+		// if((DEP_token != null)) {
+		// 	return true;
+		// } else if((CDS_token != null) && CDS_token.equals(Tokens)){
+		// 	return true;
+		// }
+		// return false;
 	}
 
 	@GetMapping("/downloadFile/{fileName:.+}")
