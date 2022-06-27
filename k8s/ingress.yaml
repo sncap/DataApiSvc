@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /ui
+          - path: /
             pathType: Prefix
             backend:
               service:
@@ -30,7 +30,21 @@ spec:
                 name: das-backend
                 port:
                   number: 8090
-          - path: /
+          - path: /cds
+            pathType: Prefix
+            backend:
+              service:
+                name: das-backend
+                port:
+                  number: 8090
+          - path: /downloadFile
+            pathType: Prefix
+            backend:
+              service:
+                name: das-backend
+                port:
+                  number: 8090
+          - path: /api2Csv
             pathType: Prefix
             backend:
               service:
