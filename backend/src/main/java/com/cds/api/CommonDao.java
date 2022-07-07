@@ -220,13 +220,13 @@ public class CommonDao {
 //					conn_max_cnt, conn_timeout);
 			return lt;
 		}
-//		catch (Exception e) {
-//			logger.error(query_id + ":" , e);
-//			//dbErrLog(query_id, e.getMessage());
-//			List alist = new ArrayList();
-//			alist.add(Collections.singletonMap(query_id + "_error", e.getMessage()));
-//			return alist;
-//		}
+		catch (Exception e) {
+			logger.error(query_id + ":" , e);
+			//dbErrLog(query_id, e.getMessage());
+			List alist = new ArrayList();
+			alist.add(Collections.singletonMap(query_id + "_error", e.getMessage()));
+			return alist;
+		}
 	}
 
 	private String getCacheKey(String query_id, Map param) {

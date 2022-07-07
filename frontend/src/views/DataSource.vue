@@ -76,6 +76,16 @@
                                             <v-col cols="10">
                                                 <v-text-field v-model="editedItem.schema_name" label="Schema명"></v-text-field>
                                             </v-col>
+                                            <v-col cols="10">
+                                                <v-text-field v-model="editedItem.db_type" label="DB Type"></v-text-field>
+                                                <v-select
+                                                    v-model="editedItem.db_type"
+                                                    :items="dbTypes"
+                                                    label="DB Type"
+                                                    flat
+                                                    style="font-size: small">
+                                                </v-select>
+                                            </v-col>
                                         </v-row>
                                     </v-container>
                                 </v-card-text>
@@ -97,12 +107,12 @@
                     >
                         mdi-pencil
                     </v-icon>
-                    <!--<v-icon
+                    <v-icon
                             small
-                            @click="deleteItem(item)"
+                            @click="reloadDataSource(item.name)"
                     >
-                        mdi-delete
-                    </v-icon>-->
+                        mdi-reload
+                    </v-icon>
                 </template>
             </v-data-table>
         </v-card>
@@ -169,6 +179,13 @@
                 { text: 'Actions', value: 'actions', sortable: false },
             ],
             dataService: [],
+            dbTypes: [
+              { text: 'MYSQL', value: 'mysql'},
+              { text: 'Postgres', value: 'postgres' },
+              { text: 'MSSQL', value: 'mssql' },
+              { text: 'Oracle', value: 'oracle' },
+              { text: 'etc.', value: '' }
+            ],
         }},
         computed: {
             formTitle () {
@@ -216,6 +233,7 @@
                 if(!this.editedItem.schema_name) this.editedItem.schema_name = ""
                 this.addUpdateDataSource(this.editedItem)
                 this.close()
+                this.reloadDataSource(this.editItem.name)
             },
             getDataSourcesInfo(){
                 this.$axios.get('/cds/listallds',
@@ -252,7 +270,16 @@
                 }).catch(error => {
                     console.log({ error });
                 })
-            }
+            },
+          reloadDataSource(dsName) {
+              let url = '/cds/ds_reload/'+dsName
+              this.$axios.get(url).then((response) => {
+                console.log(response.data)
+              }).catch(error => {
+                console.log({ error });
+              })
+          }
+
         },
         mounted() {
             this.getDataSourcesInfo()
