@@ -33,7 +33,7 @@ public class DbPassword {
 		System.out.println(decAES(encStr));
 
         // my password 
-        str = "password";
+        str = "mariadb";
 		encStr = encAES(str);
 		System.out.println(encStr);
 		System.out.println(decAES(encStr));
